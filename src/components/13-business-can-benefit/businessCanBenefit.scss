@@ -1,0 +1,100 @@
+@mixin grid($columns, $gap, $breakpoint: 768px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.business_can_benefit_section_container {
+  background-color: var(--black-color);
+  padding: 2rem 0px 2px;
+}
+
+.business-can-benefit-section {
+  margin: 0px 0 80px;
+  padding: 60px 30px;
+  background: var(--box-color);
+  box-shadow: inset 0px 0px 3px 0px var(--white-color);
+  border-radius: 20px;
+
+  @media (max-width: 600px) {
+    padding: 40px 10px;
+  }
+
+  h3 {
+    text-align: center;
+    padding-bottom: 30px;
+    font-size: 40px;
+    color: var(--main-font-color);
+
+    @media (max-width: 992px) {
+      font-size: 30px;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 20px;
+    }
+
+    span {
+      background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  &__boxes_container {
+    @include grid(3, 30px);
+
+    .boxes_container_box {
+      background-color: var(--section-color);
+      border-radius: 20px;
+      padding: 40px 30px;
+
+      @media (max-width: 600px) {
+        padding: 40px 10px;
+      }
+
+      .box_image_container {
+        width: 100%;
+        text-align: center;
+        img {
+          width: 80px;
+        }
+      }
+
+      h4 {
+        margin: 17px 0px 5px;
+        font-size: 21px;
+        text-align: center;
+        color: var(--main-font-color);
+
+        @media (max-width: 450px) {
+          font-size: 17px;
+        }
+      }
+      p {
+        font-family: "Manrope", sans-serif;
+        font-size: 16px;
+        text-align: center;
+        color: var(--second-font-color);
+        line-height: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 768px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 992px) {
+      @include grid(2, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 1200px) {
+      @include grid(3, 10px); // Adjust for smaller screens
+    }
+  }
+}

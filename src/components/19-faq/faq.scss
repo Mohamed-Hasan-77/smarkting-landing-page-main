@@ -1,0 +1,55 @@
+.faq-section {
+  text-align: center;
+  h1 {
+    margin: 3rem 0 1rem;
+    font-size: 40px;
+    color: var(--main-font-color);
+
+    @media (max-width: 992px) {
+      font-size: 30px;
+    }
+    @media (max-width: 768px) {
+      font-size: 25px;
+    }
+    @media (max-width: 600px) {
+      font-size: 22px;
+    }
+  }
+
+  .MuiAccordionSummary-content {
+
+    color: var(--main-font-color);
+    @media (max-width: 992px) {
+      font-size: 30px;
+    }
+    @media (max-width: 768px) {
+      font-size: 25px;
+      text-align: start;
+    }
+    @media (max-width: 600px) {
+      font-size: 16px;
+
+    }
+  }
+
+  .MuiAccordionDetails-root {
+    font-family: "Manrope", sans-serif;
+    color: var(--second-font-color);
+
+  }
+
+  .MuiSvgIcon-root {
+    color: var(--primary-color);
+  }
+
+  .accordion-box {
+    padding: 0rem;
+    background-color: var(--second-color);
+    border-radius: 20px;
+  }
+}
+
+.css-t2yzmp-MuiPaper-root-MuiAccordion-root::before {
+  display: none;
+}
+

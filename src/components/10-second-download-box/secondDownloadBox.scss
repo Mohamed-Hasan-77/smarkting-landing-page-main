@@ -1,0 +1,119 @@
+@mixin grid($columns, $gap, $breakpoint: 768px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.second-download-box {
+  background: var(--box-color);
+  border-radius: 20px;
+  // border: 5px solid var(--box-second-color);
+  box-shadow: inset 0px 0px 3px 0px var(--white-color);
+
+  padding: 2rem 1rem;
+  font-family: "Montserrat", sans-serif;
+
+  @include grid(2, 10px);
+  align-items: center;
+
+  @media (max-width: 600px) {
+    @include grid(1, 30px); // Adjust for smaller screens
+  }
+  @media (max-width: 992px) {
+    @include grid(2, 30px); // Adjust for smaller screens
+  }
+  @media (max-width: 768px) {
+    @include grid(1, 30px); // Adjust for smaller screens
+  }
+
+  .image-section {
+    width: 100%;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .content-section {
+    text-align: center;
+    span {
+      display: block;
+    }
+    .name {
+      background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .prev-price {
+      color: var(--white-color);
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin: 0.4rem 0;
+      text-decoration: line-through;
+    }
+    .discount {
+      font-size: 1.4rem;
+      background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: bold;
+    }
+    h2 {
+      margin: 16px 0px;
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    p {
+      color: var(--white-color);
+      font-size: 0.8rem;
+    }
+    .cancel {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 1rem;
+      background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+      cursor: pointer;
+      padding: 1rem 2rem;
+      font-size: 1.3rem;
+      border-radius: 50px;
+      outline: none;
+      border: none;
+      transition: 0.3s linear;
+      color: var(--white-color);
+      font-weight: bold;
+      &:hover {
+        background: linear-gradient(
+          180deg,
+          #912583 0%,
+          #e94057 50%,
+          #f27022 100%
+        );
+      }
+    }
+
+    .pay_card_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      flex-wrap: wrap;
+
+      
+      img {
+        width: 50px;
+        margin: 0px 10px;
+      }
+    }
+  }
+}

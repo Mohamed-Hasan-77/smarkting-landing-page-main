@@ -1,0 +1,156 @@
+@mixin grid($columns, $gap, $breakpoint: 768px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fact-section-container {
+  text-align: center;
+
+  h1 {
+    // Styles for the FACT heading
+    font-size: 220px;
+    margin: 0px 0px;
+    background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.8;
+    // Responsive design
+    @media screen and (max-width: 768px) {
+      font-size: 70px;
+    }
+  }
+
+  .text-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      // Styles for the main title
+      font-size: 42px;
+      margin: 0rem 0rem;
+      font-weight: 800;
+      color: var(--main-font-color);
+      span {
+        background: linear-gradient(
+          45deg,
+          #912583 0%,
+          #e94057 50%,
+          #f27022 100%
+        );
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      // Responsive design
+      @media screen and (max-width: 768px) {
+        font-size: 25px;
+      }
+    }
+
+    .subtitle {
+      // Styles for the subtitle
+      font-family: "Montserrat", sans-serif;
+
+      color: var(--main-font-color);
+      font-size: 23px;
+      font-weight: bold;
+      font-style: italic;
+
+      // Responsive design
+      @media screen and (max-width: 768px) {
+        font-size: 23px;
+      }
+    }
+
+    .description {
+      // Styles for the main description paragraph
+      font-family: "Manrope", sans-serif;
+      font-size: 20px;
+      color: var(--second-font-color);
+      font-weight: 500;
+      margin: 5px 0px;
+
+      span {
+        font-weight: bold;
+      }
+
+      // Responsive design
+      @media screen and (max-width: 768px) {
+        font-size: 15px;
+      }
+    }
+
+    // Responsive design
+    @media screen and (max-width: 768px) {
+      flex-basis: 100%;
+    }
+  }
+
+  .fact-box {
+    margin-top: 3rem;
+    @include grid(2, 10px);
+
+    @media (max-width: 600px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 992px) {
+      @include grid(2, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 768px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        // List item styles
+        font-family: "Manrope", sans-serif;
+        text-align: start;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        margin-bottom: 2rem;
+        font-weight: bold;
+        color: var(--second-font-color);
+
+        .fact-check-icon {
+          color: var(--primary-color);
+          font-weight: bold;
+          margin: 0px 10px;
+          font-size: 32px;
+        }
+
+        p {
+          font-size: 18px;
+          margin: 0;
+
+          // Responsive design
+          @media screen and (max-width: 768px) {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .image-section {
+    width: 100%;
+    img {
+      max-width: 100%;
+    }
+
+    // Responsive design
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,180 @@
+@mixin grid($columns, $gap, $breakpoint: 768px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.why_going_to_love_section_container {
+  background-color: var(--black-color);
+  margin-top: 5rem;
+  padding-bottom: 2rem;
+}
+
+.why-going-to-love-section {
+  padding-top: 60px;
+
+  h3,
+  h4 {
+    text-align: center;
+    color: var(--main-font-color);
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 40px;
+
+    @media (max-width: 992px) {
+      font-size: 30px;
+    }
+    @media (max-width: 768px) {
+      font-size: 25px;
+    }
+
+    span {
+      background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  h2 {
+    font-size: 25px;
+    margin: 1rem 0px;
+    background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @media (max-width: 992px) {
+      font-size: 22px;
+    }
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
+  h4 {
+    font-size: 30px;
+    font-weight: 500;
+    margin: 15px 0px 40px;
+
+    @media (max-width: 992px) {
+      font-size: 20px;
+    }
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
+  &__box {
+    @include grid(2, 30px);
+
+    @media (max-width: 600px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 992px) {
+      @include grid(2, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 768px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+    }
+    &__image__container {
+      width: 100%;
+      position: relative;
+      img {
+        max-width: 100%;
+        border-radius: 100px 0px 100px 0px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        background: linear-gradient(
+          45deg,
+          #912583 0%,
+          #e94057 50%,
+          #f27022 100%
+        );
+        width: 100px;
+        height: 100px;
+        opacity: 0.7;
+        border-radius: 50px 0px 50px 0px;
+      }
+    }
+
+    &__textarea {
+      p {
+        font-family: "Manrope", sans-serif;
+        font-size: 18px;
+        color: var(--second-font-color);
+        font-weight: 500;
+        line-height: 2rem;
+        text-align: start;
+
+        @media (max-width: 992px) {
+          font-size: 16px;
+        }
+        @media (max-width: 768px) {
+          text-align: center;
+          font-size: 15px;
+        }
+      }
+
+      ul {
+        padding-top: 1rem;
+        li {
+          display: flex;
+          margin-top: 23px;
+          align-items: start;
+
+          .checkList__icon {
+            color: var(--primary-color);
+            font-size: 2rem;
+          }
+
+          p {
+            margin: 0px 0.5rem;
+            font-weight: bold;
+            text-align: start;
+
+            @media (max-width: 992px) {
+              font-size: 16px;
+            }
+            @media (max-width: 768px) {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+
+    .why_going_down_p,
+    .why_going_down_p2 {
+      color: var(--white-color);
+      font-size: 18px;
+
+      @media (max-width: 992px) {
+        font-size: 16px;
+      }
+      @media (max-width: 768px) {
+        font-size: 15px;
+      }
+      span {
+        font-weight: bold;
+        background: linear-gradient(
+          45deg,
+          #912583 0%,
+          #e94057 50%,
+          #f27022 100%
+        );
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+  }
+}

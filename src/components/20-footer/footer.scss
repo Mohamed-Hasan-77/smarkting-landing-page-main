@@ -1,0 +1,170 @@
+@mixin grid($columns, $gap, $breakpoint: 768px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer-section {
+  background: rgb(94, 94, 94);
+  padding: 3rem 6rem;
+
+  // Media query for responsive adjustments
+  @media (max-width: 1400px) {
+    padding: 1rem 6rem;
+  }
+  @media (max-width: 1200px) {
+    padding: 1rem 6rem;
+  }
+  @media (max-width: 992px) {
+    padding: 1rem 4rem;
+  }
+  @media (max-width: 768px) {
+    padding: 1rem 1rem;
+  }
+
+  h5 {
+    color: var(--white-color);
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+
+  .footer-boxes {
+    @include grid(2, 10px);
+    align-items: center;
+
+    @media (max-width: 600px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 992px) {
+      @include grid(2, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 768px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+    }
+    .footer-box {
+      h6 {
+        font-size: 22px;
+        font-weight: bold;
+        color: var(--white-color);
+        margin-bottom: 10px;
+      }
+      p {
+        font-family: "Manrope", sans-serif;
+        color: var(--white-color);
+        font-weight: 500;
+        line-height: 2rem;
+        font-size: 15px;
+        opacity: 0.7;
+      }
+    }
+
+    .footer-box-left {
+      padding-right: 93px;
+    }
+
+    .footer-box-right {
+      padding-left: 93px;
+    }
+
+    .footer-box-left,
+    .footer-box-right {
+      @media (max-width: 1200px) {
+        padding: 0px;
+      }
+      @media (max-width: 992px) {
+        padding: 0px;
+      }
+      @media (max-width: 768px) {
+        padding: 0px;
+      }
+    }
+  }
+
+  p {
+    font-family: "Manrope", sans-serif;
+    color: var(--white-color);
+    font-weight: 500;
+    line-height: 1.5rem;
+    font-size: 13px;
+    opacity: 0.7;
+    margin-top: .5rem;
+  }
+
+  .footer-down-box {
+    display: flex;
+    // justify-content: space-around; // You might want to change this to flex-start to align items to the start
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .logo_image {
+      width: 100px; // You've defined a fixed width for the logo image
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      img {
+        max-width: 100%;
+      }
+    }
+
+    ul {
+      display: flex;
+      // flex-grow: 1; // This will make the ul grow to fill the remaining space
+      justify-content: space-around; // This will space out the list items evenly
+      padding: 0; // Reset padding to ensure it takes full width
+      margin: 0; // Reset margin to ensure it aligns properly
+      list-style: none; // Remove bullet points
+      flex-wrap: wrap;
+      text-align: start;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+      }
+
+      li {
+        font-family: "Manrope", sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--white-color);
+        margin-left: 20px;
+        margin-bottom: 20px;
+        transition: var(--transition-time);
+
+        @media (max-width: 768px) {
+          margin-left: 0;
+        }
+        cursor: pointer;
+        &:hover {
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+
+  hr {
+    width: 100%;
+    height: 1px;
+    background-color: var(--white-color);
+    margin: 1rem 0px 0.5rem;
+  }
+
+  .copy-right {
+    font-family: "Manrope", sans-serif;
+    margin-top: 0;
+    text-align: center;
+    color: var(--white-color);
+    opacity: 1;
+    font-size: 14px;
+  }
+}

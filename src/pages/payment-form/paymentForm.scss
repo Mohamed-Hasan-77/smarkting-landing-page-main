@@ -1,0 +1,102 @@
+@mixin grid($columns, $gap, $breakpoint: 768px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.payment_form_container {
+  background-color: var(--section-color);
+  padding: 0px 0px 50px;
+
+
+  @media (max-width: 350px) {
+    .MuiContainer-root {
+      padding: 0px 0px !important;
+    }
+  }
+
+
+  &_big_box {
+    background: var(--box-color);
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 3px 0px var(--white-color);
+    padding: 2rem;
+
+    @include grid(2, 30px);
+
+    @media (max-width: 992px) {
+      @include grid(2, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 830px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+      padding: 2rem 0.3rem 0rem;
+    }
+    @media (max-width: 600px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+    }
+
+    &_left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        max-width: 100px;
+
+        &.program_image {
+          max-width: 500px !important;
+
+          @media (max-width: 992px) {
+            max-width: 400px !important;
+          }
+          @media (max-width: 830px) {
+            max-width: 500px !important;
+          }
+          @media (max-width: 600px) {
+            max-width: 300px !important;
+          }
+          @media (max-width: 350px) {
+            max-width: 200px !important;
+          }
+        }
+      }
+
+      p {
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.5;
+        margin-top: 32px;
+        color: var(--second-font-color);
+
+        @media (max-width: 768px) {
+          padding: 0px 10px;
+        }
+        span {
+          font-weight: bold;
+          color: var(--white-color);
+          font-size: 24px;
+        }
+      }
+    }
+
+    &_right {
+      position: relative;
+      background-color: var(--box-second-color);
+      border-radius: 15px;
+      z-index: 100000;
+      
+      &::before {
+        content: "";
+        position: absolute;
+        border-radius: 15px;
+        inset: -4px;
+        border: 8px solid var(--box-second-color);
+        z-index: 0;
+      }
+    }
+  }
+}

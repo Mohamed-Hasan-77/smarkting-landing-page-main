@@ -1,0 +1,359 @@
+:root {
+  --background-color: white;
+  --section-color: #202328;
+  --white-color: white;
+  --primary-color: #e94057;
+  --light-primary-color: #ffc70a;
+  --secondary-color: #f27022;
+  --main-font-color: white;
+  --second-font-color: #bbbcbd;
+  --box-color: #25282d;
+  --box-second-color: #2b2e35;
+  --black-color: black;
+  --button-color: #0761dc;
+  --transition-time: 0.3s;
+}
+
+.sections {
+  background-color: var(--section-color);
+  padding: 2rem 0;
+}
+
+html,
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+.header-and-main {
+  background-image: url("../public/Images/background-images//main-section-background3.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// header {
+//   font-family: "Manrope", sans-serif;
+// }
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   font-family: "Montserrat", sans-serif;
+// }
+
+.font-en {
+  header,
+  p,
+  input,
+  label {
+    font-family: "Manrope", sans-serif !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .form_header,
+  .total_title {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  @media (max-width: 768px) {
+    .step {
+      height: auto !important;
+
+      h3 {
+        font-size: 1.1rem !important;
+      }
+
+      p {
+        height: auto !important;
+        margin-bottom: 1rem !important;
+        font-size: 0.9rem !important;
+      }
+    }
+  }
+}
+
+strong {
+  color: var(--white-color);
+}
+
+.font-ar {
+  header,
+  .total_title {
+    font-family: "El Messiri", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  button,
+  .form_header,
+  input,
+  label {
+    font-family: "El Messiri", sans-serif !important;
+  }
+
+  p,
+  li {
+    font-family: "El Messiri", sans-serif !important;
+  }
+
+  .step {
+    p {
+      height: auto !important;
+      margin-bottom: 1rem !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .step {
+      height: auto !important;
+
+      h3 {
+        font-size: 1.1rem !important;
+      }
+
+      p {
+        height: auto !important;
+        margin-bottom: 1rem !important;
+        font-size: 0.9rem !important;
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+  border-radius: 50px;
+  height: 50px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: (var(--box-second-color));
+}
+
+.cost_Calculator_section_container {
+  background-color: var(--black-color);
+  padding: 2rem 0px;
+  .cost-calculator-section {
+    text-align: center;
+    margin: 0px 0px;
+    padding: 80px 40px;
+    background: var(--box-color);
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 3px 0px var(--white-color);
+
+    h2,
+    h3 {
+      color: var(--main-font-color);
+      font-size: 40px;
+      @media (max-width: 600px) {
+        font-size: 22px !important;
+      }
+    }
+
+    h3 {
+      background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    label {
+      font-family: "Manrope", sans-serif;
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      color: var(--second-font-color);
+      font-size: 20px;
+    }
+
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0 1rem;
+      button {
+        padding: 0px 30px;
+        font-size: 30px;
+        margin: 0px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: var(--white-color);
+        background: linear-gradient(
+          45deg,
+          #912583 0%,
+          #e94057 50%,
+          #f27022 100%
+        );
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+
+    .quantity-display,
+    .total-price {
+      font-size: 1.5rem;
+      color: var(--main-font-color);
+      margin: 0.5rem 0;
+    }
+
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+  }
+}
+
+// Scroll To Top Button
+.scroll-to-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+
+  color: var(--white-color);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.scroll-to-top-button.show {
+  opacity: 1;
+}
+
+.scroll-to-top-button.hide {
+  opacity: 0;
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.loader_container {
+  background-color: var(--section-color);
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .loading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: 24px;
+    background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-left: 1rem;
+    font-weight: bold;
+  }
+
+  
+
+  .loader {
+    transform: rotateZ(45deg);
+    perspective: 1000px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    color: #e94057;
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotateX(70deg);
+    animation: 1s spin linear infinite;
+  }
+  .loader:after {
+    color: #912583;
+    transform: rotateY(70deg);
+    animation-delay: 0.4s;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: translate(-50%, -50%) rotateZ(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotateZ(360deg);
+    }
+  }
+
+  @keyframes rotateccw {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
+
+  @keyframes spin {
+    0%,
+    100% {
+      box-shadow: 0.2em 0px 0 0px currentcolor;
+    }
+    12% {
+      box-shadow: 0.2em 0.2em 0 0 currentcolor;
+    }
+    25% {
+      box-shadow: 0 0.2em 0 0px currentcolor;
+    }
+    37% {
+      box-shadow: -0.2em 0.2em 0 0 currentcolor;
+    }
+    50% {
+      box-shadow: -0.2em 0 0 0 currentcolor;
+    }
+    62% {
+      box-shadow: -0.2em -0.2em 0 0 currentcolor;
+    }
+    75% {
+      box-shadow: 0px -0.2em 0 0 currentcolor;
+    }
+    87% {
+      box-shadow: 0.2em -0.2em 0 0 currentcolor;
+    }
+  }
+}

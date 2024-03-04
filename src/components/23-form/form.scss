@@ -1,0 +1,196 @@
+.form-container {
+  // Set the font and background properties as needed
+
+  padding: 2rem;
+  inset: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 100000;
+  box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid #e94057;
+  transition: 0.5s;
+
+  .form_header {
+    // Add styles for the header here
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      .icon {
+        position: absolute;
+        width: 52px;
+        height: 58px;
+        top: 52%;
+        border: none;
+        outline: none;
+        transform: translateY(-50%);
+        background: linear-gradient(
+          45deg,
+          #912583 0%,
+          #e94057 50%,
+          #f27022 100%
+        );
+        color: var(--white-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px 0px 0px 4px;
+        z-index: 1000;
+      }
+
+      label {
+        margin: 0.5rem 0;
+        span {
+          margin: 0rem 1rem !important;
+        }
+      }
+
+      input {
+        // Style your inputs
+        background-color: transparent;
+        border-radius: 4px;
+        padding: 1rem;
+        text-indent: 3rem;
+        margin-top: 2px;
+        outline: none;
+        border: none;
+        color: var(--white-color);
+        transition: 0.1s;
+        font-size: 16px;
+
+        &:focus,
+        &:hover {
+          position: relative;
+          // outline: 3px solid var(--second-font-color); /* Make the border transparent */
+          // box-shadow:inset -5px -5px 100px 0px var(--second-font-color);
+          background-color: var(--second-font-color);
+          color: var(--black-color);
+        }
+
+        &:focus::placeholder,
+        &:hover::placeholder {
+          color: var(--black-color);
+        }
+      }
+
+      .total {
+        margin-top: 2rem;
+        font-size: 1.4rem;
+        font-weight: bold;
+        background: var(--white-color);
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+
+    .form-group.spans {
+      margin: 1rem 0;
+      span {
+        margin: 0.3rem 0;
+      }
+    }
+
+    .submit-area {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      z-index: 0;
+      .submit-button {
+        width: 100%;
+        padding: 10px 20px;
+        background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: 0.3s ease;
+
+        &:hover {
+          background: linear-gradient(-90deg, #912583 0%, #e94057 50%, #f27022 100%);
+        }
+
+        &:focus {
+          outline: none;
+          transform: scale(.95);
+        }
+      }
+    }
+  }
+  .alert {
+    position: fixed;
+    bottom: 20px;
+    right: 2rem;
+  }
+}
+
+.custom-radio-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  display: inline-block;
+  vertical-align: middle;
+  color: var(--white-color);
+  position: relative;
+  cursor: pointer;
+
+  span {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 1.5;
+  }
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.custom-radio-label .circle {
+  height: 25px !important;
+  width: 25px !important;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color) !important;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.custom-radio-label .circle::after {
+  content: "";
+  height: 15px;
+  width: 15px;
+  background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+  display: block;
+  position: absolute;
+  left: 51%;
+  top: 51%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: 300ms ease-in-out 0s;
+}
+
+input[type="radio"]:checked ~ .circle::after {
+  transform: translate(-50%, -50%) scale(1);
+}

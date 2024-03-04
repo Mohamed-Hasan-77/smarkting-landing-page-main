@@ -1,0 +1,103 @@
+@mixin grid($columns, $gap, $breakpoint: 768px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature_list_big_container {
+  background-color: var(--black-color);
+  padding: 2rem 0px;
+}
+
+.feature-list-container {
+  margin-top: 2rem;
+  text-align: center;
+  
+  h1 {
+    background: linear-gradient(45deg, #912583 0%, #e94057 50%, #f27022 100%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 40px;
+  }
+  
+  p {
+    color: var(--main-font-color);
+    font-size: 24px;
+  }
+
+  .features-list-box {
+    margin-top: 3rem;
+    @include grid(2, 10px);
+
+    @media (max-width: 600px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 992px) {
+      @include grid(2, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 768px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+    }
+
+    .feature-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .feature-list {
+      width: 100%;
+      ul {
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: space-between;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          text-align: start;
+          margin: 0.5rem 0;
+          @media (max-width: 768px) {
+            align-items: start;
+          }
+          img {
+            width: 50px;
+            margin: 0px 10px;
+            
+            @media (max-width: 600px) {
+              width: 32px;
+            }
+          }
+          p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.4rem;
+            color: var(--second-font-color);
+            font-family: "Manrope", sans-serif;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-list-container {
+    p {
+      font-size: 1rem;
+    }
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
+}

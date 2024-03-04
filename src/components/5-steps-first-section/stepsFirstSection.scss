@@ -1,0 +1,174 @@
+@mixin grid($columns, $gap, $breakpoint: 768px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.steps-container {
+  max-width: 100%;
+  padding: 20px 0;
+  background: #fff; // Replace with the actual background color
+  text-align: center;
+  margin: 2rem 0;
+  background: var(--section-color);
+
+  .steps-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .MuiSvgIcon-root {
+      font-size: 6rem;
+      color: var(--secondary-color);
+    }
+
+    h1 {
+      // Subtitle styles
+      font-family: "Montserrat", sans-serif;
+      color: var(--main-font-color);
+      span {
+        background: linear-gradient(
+          45deg,
+          #912583 0%,
+          #e94057 50%,
+          #f27022 100%
+        );
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      font-size: 3rem;
+      margin: 0.4rem 0;
+    }
+
+    p {
+      // Paragraph styles
+      font-family: "Manrope", sans-serif;
+
+      font-size: 1.5rem;
+      color: var(--second-font-color);
+      line-height: 2rem;
+      font-weight: 500;
+    }
+  }
+
+  .steps {
+    @include grid(3, 10px);
+    background-color: var(--box-color);
+    // outline: 3px solid var(--box-second-color);
+    box-shadow: inset 0px 0px 3px 0px var(--white-color);
+
+    @media (max-width: 600px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+      padding: 0rem 0rem;
+      margin-bottom: 0px !important;
+    }
+    @media (max-width: 992px) {
+      @include grid(2, 30px); // Adjust for smaller screens
+    }
+    @media (max-width: 768px) {
+      @include grid(1, 30px); // Adjust for smaller screens
+    }
+    margin-top: 20px;
+    padding: 2rem;
+    border-radius: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .step {
+      // Or whatever width you'd like them to be
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem 2rem;
+      background-color: var(--section-color);
+      // outline: 3px solid var(--box-second-color);
+      box-shadow: inset 0px 0px 3px 0px var(--white-color);
+
+      border-radius: 20px;
+      height: 520px;
+      @media screen and (min-width: 992px) and (max-width: 1150px) {
+        height: 620px;
+      }
+      @media screen and (max-width: 768px) {
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 600px) {
+        margin-bottom: 0px;
+      }
+
+      .icon-background {
+        // Style for the background of icons
+        img {
+          width: 80px; // Replace with actual size
+          height: auto;
+        }
+      }
+
+      h3 {
+        // Subheading styles
+        color: var(--main-font-color);
+        font-size: 1.4rem;
+        margin: 30px 0px;
+      }
+
+      p {
+        font-family: "Manrope", sans-serif;
+        // Paragraph styles
+        color: var(--second-font-color);
+        font-size: 1.1rem;
+        line-height: 1.8rem;
+        font-weight: 500;
+        height: 100px;
+      }
+
+      .step-number {
+        // Step number styles
+        font-family: "Manrope", sans-serif;
+
+        font-size: 3rem;
+        font-weight: 800;
+
+        &.step-one {
+          color: var(--primary-color);
+        }
+        &.step-two {
+          color: var(--secondary-color);
+        }
+        &.step-three {
+          color: var(--button-color);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .steps-container {
+    .steps-header {
+      .MuiSvgIcon-root {
+        font-size: 3rem;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+        margin: 0.4rem 0;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 2rem;
+        font-weight: 500;
+      }
+    }
+  }
+}
