@@ -12,7 +12,7 @@ export const useLanguage = () => useContext(LanguageContext);
 
 export const LanguageProvider = ({ children }) => {
   const { i18n } = useTranslation();
-  const [language, setLanguage] = useState("ar");
+  const [language, setLanguage] = useState("en");
 
   // Function to update the font family based on the language
   const updateFontFamily = (lang) => {
@@ -34,7 +34,7 @@ export const LanguageProvider = ({ children }) => {
 
   useEffect(() => {
     // Change the i18n language on mount and when language changes
-    const currentLang = localStorage.getItem("lang") || "ar";
+    const currentLang = localStorage.getItem("lang") || "en";
     setLanguage(currentLang);
     i18n.changeLanguage(currentLang);
   }, [i18n]);
